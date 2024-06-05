@@ -5,6 +5,7 @@ dotenv.config();
 
 import authRoute from "./routes/auth.routes.js";
 import messageRoute from "./routes/message.routes.js";
+import userRoute from "./routes/user.routes.js";
 import connectToMongoDB from "./db/connectToMongodb.js";
 
 const app = express();
@@ -14,6 +15,7 @@ app.use(express.json()); // to parsing the request with json payload!
 app.use(cookieParser());
 app.use("/api/auth", authRoute);
 app.use("/api/messages", messageRoute);
+app.use("/api/users", userRoute);
 
 app.get("/", (req, res) => {
   res.send("HELLO WORLD");
