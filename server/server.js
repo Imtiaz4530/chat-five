@@ -7,8 +7,8 @@ import authRoute from "./routes/auth.routes.js";
 import messageRoute from "./routes/message.routes.js";
 import userRoute from "./routes/user.routes.js";
 import connectToMongoDB from "./db/connectToMongodb.js";
+import { server, app } from "./socket/socket.js";
 
-const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json()); // to parsing the request with json payload!
@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
   res.send("HELLO WORLD");
 });
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   connectToMongoDB();
   console.log(`Server on PORT http://localhost:${PORT}`);
 });
