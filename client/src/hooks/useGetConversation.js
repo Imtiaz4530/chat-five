@@ -11,6 +11,7 @@ const useGetConversation = () => {
 
       try {
         const res = await fetch("/api/users");
+
         const data = await res.json();
 
         if (data.error) {
@@ -26,6 +27,7 @@ const useGetConversation = () => {
     };
     getConversation();
   }, []);
+  console.log(conversation);
 
   return {
     loading,

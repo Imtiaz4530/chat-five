@@ -9,6 +9,8 @@ import { useAuthContext } from "../../context/AuthContext";
 const MessageContainer = () => {
   const { selectedConversation, setSelectedConversation } = useConversation();
 
+  console.log("MessageContainer ----->", selectedConversation);
+
   useEffect(() => {
     return () => {
       setSelectedConversation(null);
